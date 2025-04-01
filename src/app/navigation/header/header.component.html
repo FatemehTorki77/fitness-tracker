@@ -1,0 +1,18 @@
+<mat-toolbar fxLayoutGap="20px">
+    <div fxHide.gt-xs>
+        <button mat-icon-button (click)="onToggleSidenav()">
+            <mat-icon>menu</mat-icon>
+        </button>
+    </div>
+    <nav fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
+        <a mat-button routerLink="/training">تمرین
+            <mat-icon class="m-0">home</mat-icon>
+        </a>
+        <a mat-button routerLink="/signup">ثبت نام
+            <mat-icon>person_add</mat-icon>
+        </a>
+        <a mat-button routerLink="/login">ورود
+            <mat-icon>login</mat-icon>
+        </a>
+    </nav>
+</mat-toolbar>

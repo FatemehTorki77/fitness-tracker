@@ -1,0 +1,51 @@
+<section>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px">
+            <mat-form-field>
+                <mat-label>ایمیل</mat-label>
+                <input 
+                matInput 
+                placeholder="test@gmail.com" 
+                type="text" ngModel 
+                email 
+                required 
+                name="email" 
+                #email="ngModel"
+                >
+                <mat-error *ngIf="email.hasError('required')">ایمیل نباید خالی باشد.</mat-error>
+                <mat-error *ngIf="!email.hasError('required')">ایمیل نامعتبر است.</mat-error>
+            </mat-form-field>
+    
+            <mat-form-field hintLabel="رمزعبور حداقل باید ۶ کاراکتر داشته باشد.">
+                <mat-label>رمزعبور</mat-label>
+                <input 
+                matInput 
+                placeholder="password" 
+                type="text" 
+                ngModel 
+                name="password" 
+                #password="ngModel" 
+                required 
+                minlength="6"
+                >
+                <mat-hint align="end" *ngIf="password.hasError('required')"> {{password.value.length}} / 6 </mat-hint>
+                <mat-error *ngIf="password.hasError('required')">رمزعبور نباید خالی باشد.</mat-error>
+                <mat-error *ngIf="!password.hasError('required')">
+                    رمزعبور حداقل باید ۶ کاراکتر داشته باشد.
+                    <mat-hint align="end" *ngIf="password.touched"> {{password.value.length}} / 6 </mat-hint>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>تاریخ تولد</mat-label>
+                <input matInput [matDatepicker]="picker" ngModel name="birthday" required>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            
+            <mat-checkbox ngModel name="agree" required>با شرایط و ضوابط موافقم.</mat-checkbox>
+
+            <button mat-flat-button type="submit" [disabled]="f.invalid">ثبت اطلاعات</button>
+        </div>
+    </form>
+</section>

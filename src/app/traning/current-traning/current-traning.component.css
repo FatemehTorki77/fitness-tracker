@@ -1,0 +1,8 @@
+.current-training {
+    padding: 30px;
+}
+
+button[mat-raised-button] {
+    background-color:  var(--mat-sys-primary);
+    color: #fff;
+}

@@ -1,0 +1,7 @@
+mat-toolbar {
+    background-color: #d7e3ff;
+}
+
+a[mat-button], mat-icon {
+    color: #005cbb;
+}
