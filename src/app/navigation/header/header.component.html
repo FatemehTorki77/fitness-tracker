@@ -5,14 +5,18 @@
         </button>
     </div>
     <nav fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
-        <a mat-button routerLink="/training">تمرین
+        <a mat-button routerLink="/training" *ngIf="isAuth">تمرین
             <mat-icon class="m-0">home</mat-icon>
         </a>
-        <a mat-button routerLink="/signup">ثبت نام
+        <a mat-button routerLink="/signup" *ngIf="!isAuth">ثبت نام
             <mat-icon>person_add</mat-icon>
         </a>
-        <a mat-button routerLink="/login">ورود
+        <a mat-button routerLink="/login" *ngIf="!isAuth">ورود
             <mat-icon>login</mat-icon>
+        </a>
+
+        <a mat-button (click)="onLogout()" *ngIf="isAuth">خروج
+            <mat-icon>logout</mat-icon>
         </a>
     </nav>
 </mat-toolbar>
